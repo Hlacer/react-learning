@@ -1,0 +1,1 @@
+export const createAddPerson = (personObj) =>({type:'addPerson',data:personObj}) /*创建一个增加人的action*/

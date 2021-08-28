@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/babel.min.js"></script>
+<script src="js/prop-types.js"></script><!--用于对组件标签属性进行限制-->
+<script type="text/babel">
+   class Student extends React.Component{
+       render() {
+           const {name,age,gander} = this.props;
+           return (
+               <ul>
+                   <li>姓名:{name}</li>
+                   <li>年龄:{age+1}</li>
+                   <li>性别:{gander}</li>
+               </ul>
+           )
+       }
+   }
+   const p = {name:'laoliu',age:18,gander:'nv'}
+   ReactDOM.render(<Student {...p}/>,document.getElementById('div1'));
+
+   Student.propTypes = {
+       name:PropTypes.string.isRequired, //限制只能写字符串,不能为空   16.0之前写法
+       gander:PropTypes.string,
+       age:PropTypes.number
+       //如果限制函数,写func就行
+   }
+
+   Student.defaultProps = {
+       gander:'不男不女',
+       age:0
+   }
+
+   ReactDOM.render(<Student name='tom'  />,document.getElementById('div2'));
+</script>
+
+
+</body>
+</html>

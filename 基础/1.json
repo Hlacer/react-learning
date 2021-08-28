@@ -1,0 +1,23 @@
+{
+  "flightWay":"Oneway",
+  "classType":"ALL",
+  "hasChild":false,
+  "hasBaby":false,
+  "searchIndex":1,
+  "date":"2021-01-05",
+  "ct":"1607859352941",
+  "airportParams": [
+    {"dcity":"DLC",
+      "acity":"CGO",
+      "dcityname":"大连",
+      "acityname":"郑州",
+      "date":"2021-01-05",
+      "dcityid":6,
+      "acityid":559,
+      "aport":"CGO",
+      "aportname":"新郑国际机场"
+    }
+  ],
+  "token":"7e4e3d096b5c27e3431fbf6f7e43348e",
+  "changeTime":"1607859352941"
+}

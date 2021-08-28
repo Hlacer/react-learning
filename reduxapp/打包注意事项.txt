@@ -1,0 +1,1 @@
+package.json文件要添加   "homepage":"."

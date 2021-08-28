@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/react.development.js"></script>
+<script src="js/react-dom.development.js"></script>
+<script src="js/babel.min.js"></script>
+<script type="text/babel">
+    class Show extends React.Component{
+        show1=()=>{
+            const {input1} = this
+            alert(input1.value)
+        }
+        show2=()=>{
+            const {input2} = this
+            alert(input2.value)
+        }
+
+        render() {
+            return(
+                    <div>
+                        <input ref={(currentNode)=>{this.input1 = currentNode}} type="text" placeholder="请输入内容"/>&nbsp;&nbsp;
+                        <button onClick={this.show1}>弹出左侧内容</button>&nbsp;&nbsp;
+                        <input onBlur={this.show2} ref={(currentNode1)=>{this.input2 = currentNode1}} type="text" placeholder="失去焦点弹出内容"/>
+                    </div>
+                )
+
+        }
+    }
+
+    ReactDOM.render(<Show/>,document.getElementById('box'));
+</script>
+</body>
+</html>

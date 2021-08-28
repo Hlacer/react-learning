@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+
+</div>
+<div id="root1"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+<script type="text/babel">
+    const name = 'jone';
+    const elements = <h5>hello,{name}</h5> //这是被称为jsx的语法拓展
+    console.log(elements)
+    ReactDOM.render(
+        elements,
+        document.getElementById('root1')
+    );
+    /*function format(user){
+        return user.firstname + ' ' + user.lastname;
+    }
+    const user = {
+        firstname : '123',
+        lastname : '456'
+    }
+    const element = (
+        <h2>
+            hello,{format(user)}!
+        </h2>
+    ); */ //建议把jsx分为多行，并将jsx包括在括号中，可以避免自动插入分号的坑
+    //函数也可以放入大括号内
+    /*ReactDOM.render(
+        element,
+        document.getElementById('root')
+    )*/
+
+    //编译后jsx会被转换为普通js，可以在if，for循环中使用jsx
+    //将 JSX 赋值给变量，把 JSX 当作参数传入，以及从函数中返回 JSX
+    /*function getGreeting(user) {
+        if (user) {
+            return <h1>Hello, {format(user)}!</h1>;
+        }
+        return <h1>Hello, Stranger.</h1>;
+    }
+
+    ReactDOM.render(
+        getGreeting(user),
+        document.getElementById('root')
+    )*/
+    //你可以通过使用引号，来将属性值指定为字符串字面量：
+    //const element1 = <div tabIndex="0"></div>;
+    //也可以使用大括号，来在属性值中插入一个 JavaScript 表达式：
+    //const element2 = <img src={user.avatarUrl}></img>;
+
+    /*在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。
+    你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，
+     对于同一属性不能同时使用这两种符号。
+     因为 JSX 语法上更接近 JavaScript 而不是 HTML，
+     所以 React DOM 使用 camelCase（小驼峰命名）来定义属性的名称，
+     而不使用 HTML 属性名称的命名约定。
+    例如，JSX 里的 class 变成了 className，而 tabindex 则变为 tabIndex。
+     */
+
+    /*
+        Babel 会把 JSX 转译成一个名为 React.createElement() 函数调用。
+
+        以下两种示例代码完全等效：
+
+        const element = (
+          <h1 className="greeting">
+            Hello, world!
+          </h1>
+        );
+
+        const element = React.createElement(
+          'h1',
+          {className: 'greeting'},
+          'Hello, world!'
+        );
+
+        React.createElement() 会预先执行一些检查，以帮助你编写无错代码，但实际上它创建了一个这样的对象：
+
+        // 注意：这是简化过的结构
+        const element = {
+          type: 'h1',
+          props: {
+            className: 'greeting',
+            children: 'Hello, world!'
+          }
+        };
+
+        这些对象被称为 “React 元素”。它们描述了你希望在屏幕上看到的内容。
+React 通过读取这些对象，然后使用它们来构建 DOM 以及保持随时更新。
+    * */
+</script>
+</body>
+</html>
